@@ -33,8 +33,14 @@ function checkerDeID(id_maq){
 
 function testGenerico1(id_maq){
     let check_de_bateria = confirm("La maquina cuenta con una bateria instalada?")
+    
     if(check_de_bateria){
-        let energia = imput("Por favor ingrese el porcentaje que indique la bateria (solo el numero)")
+        let energia = prompt("Por favor ingrese el porcentaje que indique la bateria (entre 1 y 100)")
+
+        while(100<energia||energia<0){
+            energia = prompt("Por favor ingrese el porcentaje que indique la bateria (entre 1 y 100)")
+        }
+
         switch (energia){
             case energia>80:
                 return "energia casi completa"
@@ -91,4 +97,3 @@ if(confirmacion_de_reporte){
 }
 
 alert("Que tenga un exelente dia.")
-
