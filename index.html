@@ -1,12 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="js/main.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <style href="style.css"></style>
+  <script src="js/main.js"></script>
+  <title>Registro de Maquina</title>
 </head>
+
 <body>
-    <h1>Bienvenido al diagnostico de máquina.</h1>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6">
+        <h1 class="mb-4">Registro de Maquina</h1>
+        <form>
+          <div class="form-group">
+            <label for="input_nombre">Nombre:</label>
+            <input type="text" class="form-control" id="input_nombre" placeholder="Ingresa el nombre de la maquina" />
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="checkbox_electica" />
+            <label class="form-check-label" for="checkbox_electica">¿Es electrica?</label>
+          </div>
+          <div class="form-group">
+            <label for="input_placa">Placa:</label>
+            <input type="text" class="form-control" id="input_placa" placeholder="Ingresa la placa de la maquina" />
+          </div>
+          <button type="button" class="btn btn-primary" id="boton_load_datos">Guardar Maquina</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <h1 class="mb-4">Informacion de Maquina</h1>
+        <label for="listbox_maquinas">Seleccione el ID de la maquina:</label>
+        <select id="listbox_maquinas" class="form-control mb-3">
+          <option value="0">Elija</option>
+        </select>
+        <button type="button" class="btn btn-secondary mb-4" id="boton_load_de_lista">Ver Maquina</button>
+        <button type="button" class="btn btn-danger mb-4" id="boton_delete_de_lista">Borrar Maquina</button>
+        <button type="button" class="btn btn-warning mb-4" id="boton_nuevo_pin">Crear Nuevo PIN</button>
+        <div>
+          <div id="text1"><strong>ID:</strong></div>
+          <div id="text2"><strong>Nombre:</strong></div>
+          <div id="text3"><strong>Placa:</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>

@@ -1,108 +1,157 @@
-let base_de_datos_maquinas = [ "12345" , "0001" , "1234" ]
+let base_de_datos_maquinas = []; //coleccion de maquinas
 
-function checkMaquina(maq_para_probar){
-    var check = base_de_datos_maquinas.includes(maq_para_probar)
-    if (!check)
-        {
-        console.log("Maquina no valida!")
-        return false
-        }
-    else {
-        return true
-    }
+function nuevoPIN(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min; //generar un pin random de 1000 a 9999
 }
 
-function checkerDeID(id_maq){
+class Maquinas {
+  static id = 0;
+  constructor(nombre, placa) {
+    this.id = ++Maquinas.id; //id incremental por creacion, NO tiene que haber dos id iguales
+    this.nombre = nombre;
+    this.placa = placa;
+    this.fue_checkeada = false;
+    this.maqPIN = nuevoPIN(1000, 9999); // creamos un pin
+  }
 
-    let intento = 0
-    let checkmaquinavalida = false
+  nuevoPIN() {
+    this.maqPIN = nuevoPIN(1000, 9999); //hago nuevo pin no importa si cae el mismo
 
-    while(checkmaquinavalida == false){
-    if (intento>0){
-        console.log("ID erroneo, intento numero "+intento) //ver el intento
-        id_maq = prompt("ID erroneo, por favor ingresa el ID de la maquina que quieres ver (12345, 0001 ,1234)")
-    }
-
-    checkmaquinavalida = checkMaquina(id_maq)
-    intento++
-    }
-
-    return id_maq
+    document.getElementById("text1").innerHTML = "<strong></strong>";
+    document.getElementById("text2").innerHTML =
+      "<strong>PIN cambiado exitosamente a </strong>" + this.maqPIN;
+    document.getElementById("text3").innerHTML =
+      "<strong>Guardelo y no lo comparta</strong>";
+  }
+  checkSwitch(check) {
+    this.fue_checkeada = check; //darle al check
+  }
 }
 
-function testGenerico1(id_maq){
+function agregarIDaListbox(maquina) {
+  const lista_maq = document.getElementById("listbox_maquinas");
+  const nueva_option = document.createElement("option");
 
-    console.log("Check de bateria iniciado")
-    let check_de_bateria = confirm("La maquina cuenta con una bateria instalada?")
-    
-    if(check_de_bateria){
-        let energia = prompt("Por favor ingrese el porcentaje que indique la bateria (entre 1 y 100)")
+  nueva_option.value = maquina.id; //>0
+  nueva_option.text = `ID:${maquina.id}`; //ID:IDquesea
 
-        while(isNaN(energia) || 100<=energia||energia<=0){
-            energia = prompt("Porcentaje fuera de rango. \n Por favor ingrese el porcentaje que indique la bateria (entre 1 y 100)")
-        }
-        console.log("Bateria a "+energia+"%")
-
-        if (energia > 80) {
-            return "energia casi completa";
-        } else if (energia > 40) {
-            return "niveles de energia normales";
-        } else {
-            return "necesita cargar la bateria";
-        }
-
-    }
-    else{
-        console.log("Sin bateria")
-        return "sin bateria"
-    }
+  lista_maq.appendChild(nueva_option);
+  lista_maq.value = maquina.id;
 }
 
-function testGenerico2(id_maq){
-    console.log("Check de hidraulicos iniciado")
-    let check_de_hidraulicos = confirm("Ha percibido alguna irregularidad en el funcionamiento de la maquina?")
-    if(check_de_hidraulicos){
-        alert("Este reporte le va a informar a un tecnico")
-        console.log("Maquina en necesidad de un check.")
-        return "necesitando un tecnico"
-    }
-    else{
-        console.log("maquina funcionando sin inconvenientes")
-        return "funcionando con normalidad"
-    }
+function mostrarMaquina(maquina) {
+  if (maquina) {
+    document.getElementById("text1").innerHTML =
+      "<strong>ID:</strong> " + maquina.id;
+    document.getElementById("text2").innerHTML =
+      "<strong>Nombre:</strong> " + maquina.nombre;
+    document.getElementById("text3").innerHTML =
+      "<strong>Placa:</strong> " + maquina.placa;
+  } else {
+    document.getElementById("text1").innerHTML = "<strong>ID Invalido</strong>";
+    document.getElementById("text2").innerHTML =
+      "<strong>Nombre Invalido</strong>";
+    document.getElementById("text3").innerHTML =
+      "<strong>Placa Invalida</strong>";
+  }
 }
 
-function testGenerico3(id_maq){
-    console.log("Check de operacion iniciado")
-    let check_online = confirm("¿El dispositivo esta en operacion?")
-    if(check_online){
-        console.log("Maquina Online")
-        return "online"
-    }
-    else{
-        console.log("Maquina Offline")
-        return "offline"
-    }
+function eliminarMaquina(id) {
+  base_de_datos_maquinas = base_de_datos_maquinas.filter(
+    (maquina) => maquina.id !== id
+  ); //limpieza por id
+  const lista_maq = document.getElementById("listbox_maquinas");
+  const indice_a_borrar = Array.from(lista_maq.options).findIndex(
+    (option) => parseInt(option.value) === id
+  ); //creo un array, buscar el id, retornar indice en array,
+
+  if (indice_a_borrar > 0) {
+    lista_maq.remove(indice_a_borrar);
+  } else {
+    console.log("No hay maquina!"); //en caso de que quiera borrar el texto de ejemplo
+  }
 }
 
-function rollDeChecks(id_maq){
-    let elec = testGenerico1(id_maq)
-    let func = testGenerico2(id_maq)
-    let online = testGenerico3(id_maq)
-
-    alert("Reporte finalizado para maquina " + id_maq + "\n" + elec + ", sistemas " + func + "  y en estado " + online + ".")
+function borrarMaquina(maquina) {
+  if (maquina) {
+    eliminarMaquina(maquina.id);
+    document.getElementById("text1").innerHTML = "<strong></strong>";
+    document.getElementById("text2").innerHTML =
+      "<strong>Maquina Exitosamente Eliminada</strong>";
+    document.getElementById("text3").innerHTML = "<strong></strong>";
+  } else {
+    document.getElementById("text1").innerHTML = "<strong></strong>";
+    document.getElementById("text2").innerHTML =
+      "<strong>Maquina Invalida</strong>";
+    document.getElementById("text3").innerHTML = "<strong></strong>";
+  }
 }
 
-//Inicio de programa
+function crearMaquinas() {
+  let nombre = document.getElementById("input_nombre").value;
+  let placa = document.getElementById("input_placa").value;
+  let checkbox_electica = document.getElementById("checkbox_electica").checked;
 
-var id_maquina = prompt("Hola, bienvenido al reporte de maquina! \n Por favor ingresa el ID de la maquina que quieres ver (12345, 0001 ,1234)")
+  if (!nombre || !placa) {
+    alert("Completar datos!");
+    return;
+  }
 
-checkerDeID(id_maquina)
+  let nueva_maquina = new Maquinas(nombre, placa);
+  nueva_maquina.checkSwitch(checkbox_electica);
 
-var confirmacion_de_reporte = confirm("¿Quiere realizar un reporte de la maquina "+id_maquina+"?")
+  base_de_datos_maquinas.push(nueva_maquina);
 
-if(confirmacion_de_reporte){
-    rollDeChecks(id_maquina)
+  agregarIDaListbox(nueva_maquina);
+  mostrarMaquina(nueva_maquina); // actualizar el mostrar maq
 }
 
-alert("Que tenga un exelente dia.")
+document.addEventListener("DOMContentLoaded", function () {
+  //todos los botones
+  const saveBoton = document.getElementById("boton_load_datos");
+  const listaBotonLoad = document.getElementById("boton_load_de_lista");
+  const listaBotonDelete = document.getElementById("boton_delete_de_lista");
+  const listaBotonPIN = document.getElementById("boton_nuevo_pin");
+
+  saveBoton.addEventListener("click", crearMaquinas);
+
+  listaBotonLoad.addEventListener("click", function () {
+    let id_elegido = parseInt(
+      document.getElementById("listbox_maquinas").value
+    );
+    let maq_aver = base_de_datos_maquinas.find(
+      (buscada) => buscada.id === id_elegido
+    );
+    mostrarMaquina(maq_aver);
+  });
+
+  listaBotonDelete.addEventListener("click", function () {
+    let id_elegido = parseInt(
+      document.getElementById("listbox_maquinas").value
+    );
+    let maq_aver = base_de_datos_maquinas.find(
+      (buscada) => buscada.id === id_elegido
+    );
+    borrarMaquina(maq_aver);
+  });
+
+  listaBotonPIN.addEventListener("click", function () {
+    let id_elegido = parseInt(
+      document.getElementById("listbox_maquinas").value
+    );
+    let maq_aver = base_de_datos_maquinas.find(
+      (buscada) => buscada.id === id_elegido
+    );
+    maq_aver.nuevoPIN(maq_aver);
+  });
+});
+
+function cargarMaquinaEspecifica(id) {
+  if (buscada) {
+    mostrarMaquina(buscada);
+  } else {
+    document.getElementById("text1").innerHTML = "No encontrado";
+    document.getElementById("text2").innerHTML = "No encontrado";
+    document.getElementById("text3").innerHTML = "No encontrado";
+  }
+}
