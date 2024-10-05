@@ -1,0 +1,132 @@
+{
+  "items": [
+    {
+      "ID": 8123,
+      "placa": "LFSM84572",
+      "marca": "Ford",
+      "model": "Focus",
+      "ultima_revision": "2024-03-15",
+      "estado": "Disponible"
+    },
+    {
+      "ID": 9481,
+      "placa": "RTGV98211",
+      "marca": "Toyota",
+      "model": "Corolla",
+      "ultima_revision": "2024-07-22",
+      "estado": "No disponible"
+    },
+    {
+      "ID": 1356,
+      "placa": "NMGF74185",
+      "marca": "Volkswagen",
+      "model": "Golf",
+      "ultima_revision": "2024-01-10",
+      "estado": "Disponible"
+    },
+    {
+      "ID": 6192,
+      "placa": "KDJH92643",
+      "marca": "Honda",
+      "model": "Civic",
+      "ultima_revision": "2024-05-25",
+      "estado": "No disponible"
+    },
+    {
+      "ID": 4218,
+      "placa": "CDSL65490",
+      "marca": "Nissan",
+      "model": "Altima",
+      "ultima_revision": "2024-06-18",
+      "estado": "Disponible"
+    },
+    {
+      "ID": 9812,
+      "placa": "FRTG98219",
+      "marca": "Chevrolet",
+      "model": "Cruze",
+      "ultima_revision": "2024-02-05",
+      "estado": "No disponible"
+    },
+    {
+      "ID": 8149,
+      "placa": "HGDW98563",
+      "marca": "Ford",
+      "model": "Focus",
+      "ultima_revision": "2024-04-12",
+      "estado": "Disponible"
+    },
+    {
+      "ID": 9311,
+      "placa": "TVSN85492",
+      "marca": "Toyota",
+      "model": "Corolla",
+      "ultima_revision": "2024-01-01",
+      "estado": "No disponible"
+    },
+    {
+      "ID": 1397,
+      "placa": "RBMK67219",
+      "marca": "Volkswagen",
+      "model": "Golf",
+      "ultima_revision": "2024-02-20",
+      "estado": "Disponible"
+    },
+    {
+      "ID": 6238,
+      "placa": "QAZP98321",
+      "marca": "Honda",
+      "model": "Civic",
+      "ultima_revision": "2024-05-30",
+      "estado": "No disponible"
+    },
+    {
+      "ID": 4251,
+      "placa": "FDGH65478",
+      "marca": "Nissan",
+      "model": "Altima",
+      "ultima_revision": "2024-06-15",
+      "estado": "Disponible"
+    },
+    {
+      "ID": 9829,
+      "placa": "GTYU98219",
+      "marca": "Chevrolet",
+      "model": "Cruze",
+      "ultima_revision": "2024-03-01",
+      "estado": "No disponible"
+    },
+    {
+      "ID": 8175,
+      "placa": "KJHG98563",
+      "marca": "Ford",
+      "model": "Focus",
+      "ultima_revision": "2024-04-18",
+      "estado": "Disponible"
+    },
+    {
+      "ID": 9332,
+      "placa": "CXVB85492",
+      "marca": "Toyota",
+      "model": "Corolla",
+      "ultima_revision": "2024-05-15",
+      "estado": "No disponible"
+    },
+    {
+      "ID": 1419,
+      "placa": "ZXCQ67219",
+      "marca": "Volkswagen",
+      "model": "Golf",
+      "ultima_revision": "2024-02-25",
+      "estado": "Disponible"
+    },
+    {
+      "ID": 6289,
+      "placa": "ASDF98321",
+      "marca": "Honda",
+      "model": "Civic",
+      "ultima_revision": "2024-05-32",
+      "estado": "No disponible"
+    }
+  ]
+}
