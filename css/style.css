@@ -4,7 +4,9 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
-h2, h4, h6 {
+h2,
+h4,
+h6 {
     color: #aed8fa;
 }
 
@@ -22,9 +24,10 @@ h2, h4, h6 {
 }
 
 .btn-secondary {
-    background-color: #424242; 
+    background-color: #424242;
     border: none;
 }
+
 .btn-secondary:hover {
     background-color: #616161;
 }
@@ -48,13 +51,14 @@ h2, h4, h6 {
 }
 
 .card {
-    background-color: #1e1e2f; /* probar en claro */
+    background-color: #1e1e2f;
+    /* probar en claro */
     border: none;
 }
 
 .form-control {
-    background-color: #424242; 
-    color: #ffffff; 
+    background-color: #424242;
+    color: #ffffff;
     border: none;
     border-radius: 0;
 }
