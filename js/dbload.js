@@ -42,36 +42,36 @@ async function refreshdataButton() {
     await fetchDatos()
 
     let keys = JSON.parse(localStorage.getItem("keys"))
-    let selectElement = document.getElementById("listbox_maquinas")
+    let select_element = document.getElementById("listbox_maquinas")
 
-    selectElement.innerHTML = ''
+    select_element.innerHTML = ''
 
-    let optionToRemove = selectElement.querySelector('option[value="0"]')
-    if (optionToRemove) {
-        selectElement.removeChild(optionToRemove)
+    let a_remover = select_element.querySelector('option[value="0"]')
+    if (a_remover) {
+        select_element.removeChild(a_remover)
     }
     keys.forEach(key => {
-        let option = document.createElement("option")
-        option.value = key
-        option.textContent = key
-        selectElement.appendChild(option)
+        let opcion = document.createElement("option")
+        opcion.value = key
+        opcion.textContent = key
+        select_element.appendChild(opcion)
     })
 }
 
 async function refreshlist() {
 
     let keys = JSON.parse(localStorage.getItem("keys"))
-    let selectElement = document.getElementById("listbox_maquinas")
+    let select_element = document.getElementById("listbox_maquinas")
 
-    let optionToRemove = selectElement.querySelector('option[value="0"]')
-    if (optionToRemove) {
-        selectElement.removeChild(optionToRemove)
+    let a_remover = select_element.querySelector('option[value="0"]')
+    if (a_remover) {
+        select_element.removeChild(a_remover)
     }
     keys.forEach(key => {
-        let option = document.createElement("option")
-        option.value = key
-        option.textContent = key
-        selectElement.appendChild(option)
+        let opcion = document.createElement("option")
+        opcion.value = key
+        opcion.textContent = key
+        select_element.appendChild(opcion)
     })
 }
 

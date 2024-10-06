@@ -1,33 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Maquina</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style href="css/style.css"></style>
+    <link href="css/style.css" rel="stylesheet">
     <script defer src="js/dbload.js"></script>
-    <script defer src="js/main.js"></script>
+    <script defer src="js/main.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
 </head>
+
 <body>
 
-<div class="container mt-4">
-    <div class="row">
-        <!--Panel IZQ-->
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-12 mb-2">
-                    <h1 class="mb-4">¡Bienvenido al diagnostico de vehiculos!</h1>
-                    <button type="button" class="btn btn-primary" id="boton_actualizar_datos"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                            height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
-                            <path
-                                d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9" />
-                            <path fill-rule="evenodd"
-                                d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z" />
-                        </svg> Extraer Datos</button>
-                        <select id="listbox_maquinas" class="form-control mb-3">
-                            <option value="0">Sin datos, revise la conexion y seleccione "Extraer Datos"</option>
-                        </select>
+    <div class="container mt-4">
+        <div class="row">
+            <!--Panel IZQ-->
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-12 mb-2">
+                        <h2 class="mb-4">¡Bienvenido a la Chckr!</h2> <h6>Version 2.1.0</h6>
+                        <div class="container mt-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <button class="btn btn-primary me-2" id="boton_actualizar_datos">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                                        <path
+                                            d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9" />
+                                        <path fill-rule="evenodd"
+                                            d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z" />
+                                    </svg> Extraer Datos
+                                </button>
+                                <select id="listbox_maquinas" class="form-control">
+                                    <option value="0">Sin datos, revise la conexión y seleccione "Extraer Datos"
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-md-8">
                                 <div>
@@ -52,53 +64,118 @@
                             <div class="col-md-4">
                                 <div class="card">
                                     <div class="card-body text-center">
-                                        <h5 class="card-title">Marca</h5>
+                                        <h4 class="card-title">Tipo de Vehiculo</h4>
                                         <div id="div_marca_vehiculo">-</div>
-                                        <img src="https://via.placeholder.com/150" alt="Placeholder Image" class="img-fluid" id="div_brand_vehiculo" />
-                                        <p class="card-text">Modelo</p>
+                                        <img src="https://via.placeholder.com/150" alt="Placeholder Image"
+                                            class="img-fluid" id="div_brand_vehiculo" />
                                         <div id="div_modelo_vehiculo">-</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                </div>
-                <div class="col-12">
-                    <h1 class="mb-4">Registro de Maquinas</h1>
-                    <label for="listbox_maquinas">Importante: Si se crea un nuevo vehiculo ¡El mismo permanecera en estado "Fuera de operacion" hasta realizar un diagnostico!</label>
-                    <p id="mensaje_reporte"></p>
-                    <div>
-                        <div class="form-group">
-                            <label>Nombre:</label>
-                            <input type="text" class="form-control" id="input_nombre" placeholder="Nombre del vehículo" />
-                        </div>
-                        <div class="form-group">
-                            <label>Marca:</label>
-                            <input type="text" class="form-control" id="input_marca" placeholder="Marca del vehículo" />
-                        </div>
-                        <div class="form-group">
-                            <label>Modelo:</label>
-                            <input type="text" class="form-control" id="input_modelo" placeholder="Modelo del vehículo" />
-                        </div>
                     </div>
-                    <button type="button" class="btn btn-secondary mb-4" id="boton_editar">Editar Maquina</button>
-                    <button type="button" class="btn btn-danger mb-4" id="boton_borrar">Borrar Maquina</button>
-                    <button type="button" class="btn btn-warning mb-4" id="boton_crear">Crear Maquina</button>
+                    <div class="col-12">
+                        <h4 class="mb-4">Registro de Maquinas</h4>
+                        <label for="listbox_maquinas">Importante: Si se crea un nuevo vehiculo ¡El mismo permanecera en
+                            estado "Fuera de operacion" hasta realizar un diagnostico!</label>
+                        <p id="mensaje_reporte"></p>
+                        <div>
+                            <div class="form-group">
+                                <label>Nombre:</label>
+                                <input type="text" class="form-control" id="input_nombre"
+                                    placeholder="Nombre del vehículo" />
+                            </div>
+                            <div class="form-group">
+                                <label>Marca:</label>
+                                <input type="text" class="form-control" id="input_marca"
+                                    placeholder="Marca del vehículo" />
+                            </div>
+                            <div class="form-group">
+                                <label>Modelo:</label>
+                                <input type="text" class="form-control" id="input_modelo"
+                                    placeholder="Modelo del vehículo" />
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary mb-4" id="boton_editar">Editar Maquina</button>
+                        <button type="button" class="btn btn-danger mb-4" id="boton_borrar">Borrar Maquina</button>
+                        <button type="button" class="btn btn-warning mb-4" id="boton_crear">Crear Maquina</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!--Panel DER-->
-        <div class="col-md-6">
-            <div class="border p-3">
-                Panel Derecho
+            <div class="col-md-6">
+                <form id="maquinaForm">
+                    <h2 class="mb-4">Diagnostico de vehiculos</h2>
+                    <div class="form-group">
+                        <label>1. ¿Está la presión de los neumáticos correcta? (psi)</label>
+                        <input type="number" class="form-control" name="checkPresionRuedas"
+                            placeholder="Ingrese presión (psi)" required>
+                    </div>
+                    <div class="form-group">
+                        <label>2. ¿Funciona correctamente el freno? (0 - 100%)</label>
+                        <input type="number" class="form-control" name="checkBrake" placeholder="Porcentaje de eficacia"
+                            min="0" max="100" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>3. ¿Se encuentra el nivel de aceite adecuado? (Litros)</label>
+                        <input type="number" class="form-control" name="checkAceite"
+                            placeholder="Ingrese litros de aceite" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>4. ¿Funciona el sistema de luces? (0 - 100%)</label>
+                        <input type="number" class="form-control" name="checkLuces"
+                            placeholder="Porcentaje de funcionamiento" min="0" max="100" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>5. ¿Hay fugas visibles en el motor?</label>
+                        <div>
+                            <input type="radio" name="checkFugas" value="no" required> No
+                            <input type="radio" name="checkFugas" value="yes"> Sí
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>6. ¿Funciona el aire acondicionado? (0 - 100%)</label>
+                        <input type="number" class="form-control" name="checkAC"
+                            placeholder="Porcentaje de funcionamiento" min="0" max="100" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>8. ¿Se encuentran los cinturones de seguridad en buen estado?</label>
+                        <div>
+                            <input type="radio" name="checkAsientos" value="yes" required> Sí
+                            <input type="radio" name="checkAsientos" value="no"> No
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>9. ¿Cuál es el estado de la batería? (0 - 100%)</label>
+                        <input type="number" class="form-control" name="checkBateria" placeholder="Porcentaje de carga"
+                            min="0" max="100" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>11. ¿Funciona el sistema de dirección? (0 - 100%)</label>
+                        <input type="number" class="form-control" name="checkDireccion"
+                            placeholder="Porcentaje de funcionamiento" min="0" max="100" required>
+                    </div>
+
+                    <button type="button" class="btn btn-danger btn-block" id="scoringReporte">Reportar</button>
+                </form>
+
+                <h4 id="scoreReporte">Inicie el reporte.</h4>
+
             </div>
         </div>
     </div>
-</div>
+    </div>
 
-<!-- Script de Bootstrap -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
+
 </html>
