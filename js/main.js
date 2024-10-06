@@ -1,5 +1,5 @@
 function mostrarMensaje(texto, color) {
-  const mensajeDiv = document.getElementById('mensaje_reporte');
+  const mensajeDiv = document.getElementById('mensaje_reporte')
   mensajeDiv.textContent = texto
   mensajeDiv.style.display = 'block'
   mensajeDiv.style.color = color
@@ -11,7 +11,7 @@ function actualizarVehiculo() {
   let vehicleData = localStorage.getItem(selectedID)
 
   if (vehicleData && vehicleData!=0) {
-    let vehicle = JSON.parse(vehicleData);
+    let vehicle = JSON.parse(vehicleData)
 
     document.getElementById("div_ID_vehiculo").innerText = vehicle.ID
     document.getElementById("div_nombre_vehiculo").innerText = vehicle.placa
@@ -31,7 +31,7 @@ function actualizarVehiculo() {
     brandImg.style.visibility = "visible"
     brandImg.onerror = function() {
         this.style.visibility = "hidden"
-    };
+    }
     
 
   } else {
@@ -99,15 +99,15 @@ function borrarVehiculo(){
 //////////////
 
 function generateUniqueID() {
-  let id;
+  let id
   do {
       id = Math.floor(Math.random()*(10000-1000+1))+1000
   } while (localStorage.getItem(id))
-  return id;
+  return id
 }
 
 function crearVehiculo(){
-  const vehicleID = generateUniqueID();
+  const vehicleID = generateUniqueID()
   const nombre = document.getElementById('input_nombre').value
   const marca = document.getElementById('input_marca').value
   const modelo = document.getElementById('input_modelo').value
@@ -121,7 +121,7 @@ function crearVehiculo(){
   ) {
     
     mostrarMensaje("Todos los campos son obligatorios.", "red")
-      return;
+      return
   }
 
   const newVehicle = {
@@ -131,11 +131,11 @@ function crearVehiculo(){
       model: modelo,
       ultima_revision: 'Sin revision',
       estado: 'Fuera de operacion'
-  };
+  }
 
-  localStorage.setItem(vehicleID, JSON.stringify(newVehicle));
+  localStorage.setItem(vehicleID, JSON.stringify(newVehicle))
 
-  updateKeysArray(vehicleID, true);
+  updateKeysArray(vehicleID, true)
   mostrarMensaje("Vehiculo creado con id " + vehicleID, "blue")
 }
 
@@ -143,20 +143,20 @@ function crearVehiculo(){
 
 
 function updateKeysArray(vehicleID, isEdit) {
-  let keysArray = JSON.parse(localStorage.getItem('keys')) || [];
+  let keysArray = JSON.parse(localStorage.getItem('keys')) || []
 
   if (isEdit) {
     
       if (!keysArray.includes(vehicleID)) {
-          keysArray.push(vehicleID);
+          keysArray.push(vehicleID)
       }
   } else {
     
-      keysArray = keysArray.filter(id => id !== vehicleID);
+      keysArray = keysArray.filter(id => id !== vehicleID)
   }
 
   
-  localStorage.setItem('keys', JSON.stringify(keysArray));
+  localStorage.setItem('keys', JSON.stringify(keysArray))
 
 
     let keys = JSON.parse(localStorage.getItem("keys"))
@@ -165,11 +165,11 @@ function updateKeysArray(vehicleID, isEdit) {
     selectElement.innerHTML = ''
 
     keys.forEach(key => {
-        const option = document.createElement("option");
+        const option = document.createElement("option")
         option.value = key
         option.textContent = key
         selectElement.appendChild(option)
-    });
+    })
 
 }
 

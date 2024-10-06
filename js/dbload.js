@@ -1,5 +1,5 @@
 function errorREPORT(texto, color) {
-    const mensajeDiv = document.getElementById('mensaje_reporte');
+    const mensajeDiv = document.getElementById('mensaje_reporte')
     mensajeDiv.textContent = texto
     mensajeDiv.style.display = 'block'
     mensajeDiv.style.color = color
@@ -7,7 +7,7 @@ function errorREPORT(texto, color) {
 
 async function fetchDatos() {
     try {
-        let response = await fetch('https://raw.githubusercontent.com/kinbine/Entregable_Romero/refs/heads/main/recursos/maquinas.json');
+        let response = await fetch('https://raw.githubusercontent.com/kinbine/Entregable_Romero/refs/heads/main/recursos/maquinas.json')
 
         if (!response.ok) {
             errorREPORT("Revisa tu Conexion", "red")
@@ -29,7 +29,7 @@ async function fetchDatos() {
             keys.push(id)
         }
 
-        localStorage.setItem('keys', JSON.stringify(keys));
+        localStorage.setItem('keys', JSON.stringify(keys))
 
     } catch (error) {
         errorREPORT("Revisa tu Conexion", "red")
@@ -48,14 +48,14 @@ async function refreshdataButton() {
 
     let optionToRemove = selectElement.querySelector('option[value="0"]')
     if (optionToRemove) {
-        selectElement.removeChild(optionToRemove);
+        selectElement.removeChild(optionToRemove)
     }
     keys.forEach(key => {
-        let option = document.createElement("option");
+        let option = document.createElement("option")
         option.value = key
         option.textContent = key
         selectElement.appendChild(option)
-    });
+    })
 }
 
 async function refreshlist() {
@@ -65,14 +65,14 @@ async function refreshlist() {
 
     let optionToRemove = selectElement.querySelector('option[value="0"]')
     if (optionToRemove) {
-        selectElement.removeChild(optionToRemove);
+        selectElement.removeChild(optionToRemove)
     }
     keys.forEach(key => {
-        let option = document.createElement("option");
+        let option = document.createElement("option")
         option.value = key
         option.textContent = key
         selectElement.appendChild(option)
-    });
+    })
 }
 
 refreshlist()
