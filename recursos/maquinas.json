@@ -6,7 +6,7 @@
       "marca": "Ford",
       "model": "Focus",
       "ultima_revision": "2024-03-15",
-      "estado": "Disponible"
+      "estado": "En operacion"
     },
     {
       "ID": 9481,
@@ -14,7 +14,7 @@
       "marca": "Toyota",
       "model": "Corolla",
       "ultima_revision": "2024-07-22",
-      "estado": "No disponible"
+      "estado": "Fuera de operacion"
     },
     {
       "ID": 1356,
@@ -22,7 +22,7 @@
       "marca": "Volkswagen",
       "model": "Golf",
       "ultima_revision": "2024-01-10",
-      "estado": "Disponible"
+      "estado": "En operacion"
     },
     {
       "ID": 6192,
@@ -30,7 +30,7 @@
       "marca": "Honda",
       "model": "Civic",
       "ultima_revision": "2024-05-25",
-      "estado": "No disponible"
+      "estado": "Fuera de operacion"
     },
     {
       "ID": 4218,
@@ -38,7 +38,7 @@
       "marca": "Nissan",
       "model": "Altima",
       "ultima_revision": "2024-06-18",
-      "estado": "Disponible"
+      "estado": "En operacion"
     },
     {
       "ID": 9812,
@@ -46,7 +46,7 @@
       "marca": "Chevrolet",
       "model": "Cruze",
       "ultima_revision": "2024-02-05",
-      "estado": "No disponible"
+      "estado": "Fuera de operacion"
     },
     {
       "ID": 8149,
@@ -54,7 +54,7 @@
       "marca": "Ford",
       "model": "Focus",
       "ultima_revision": "2024-04-12",
-      "estado": "Disponible"
+      "estado": "En operacion"
     },
     {
       "ID": 9311,
@@ -62,7 +62,7 @@
       "marca": "Toyota",
       "model": "Corolla",
       "ultima_revision": "2024-01-01",
-      "estado": "No disponible"
+      "estado": "Fuera de operacion"
     },
     {
       "ID": 1397,
@@ -70,7 +70,7 @@
       "marca": "Volkswagen",
       "model": "Golf",
       "ultima_revision": "2024-02-20",
-      "estado": "Disponible"
+      "estado": "En operacion"
     },
     {
       "ID": 6238,
@@ -78,7 +78,7 @@
       "marca": "Honda",
       "model": "Civic",
       "ultima_revision": "2024-05-30",
-      "estado": "No disponible"
+      "estado": "Fuera de operacion"
     },
     {
       "ID": 4251,
@@ -86,7 +86,7 @@
       "marca": "Nissan",
       "model": "Altima",
       "ultima_revision": "2024-06-15",
-      "estado": "Disponible"
+      "estado": "En operacion"
     },
     {
       "ID": 9829,
@@ -94,7 +94,7 @@
       "marca": "Chevrolet",
       "model": "Cruze",
       "ultima_revision": "2024-03-01",
-      "estado": "No disponible"
+      "estado": "Fuera de operacion"
     },
     {
       "ID": 8175,
@@ -102,7 +102,7 @@
       "marca": "Ford",
       "model": "Focus",
       "ultima_revision": "2024-04-18",
-      "estado": "Disponible"
+      "estado": "En operacion"
     },
     {
       "ID": 9332,
@@ -110,7 +110,7 @@
       "marca": "Toyota",
       "model": "Corolla",
       "ultima_revision": "2024-05-15",
-      "estado": "No disponible"
+      "estado": "Fuera de operacion"
     },
     {
       "ID": 1419,
@@ -118,7 +118,7 @@
       "marca": "Volkswagen",
       "model": "Golf",
       "ultima_revision": "2024-02-25",
-      "estado": "Disponible"
+      "estado": "En operacion"
     },
     {
       "ID": 6289,
@@ -126,7 +126,7 @@
       "marca": "Honda",
       "model": "Civic",
       "ultima_revision": "2024-05-32",
-      "estado": "No disponible"
+      "estado": "Fuera de operacion"
     }
   ]
 }
